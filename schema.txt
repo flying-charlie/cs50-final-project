@@ -8,6 +8,7 @@ TABLE progressions
 	user_id                 INTEGER NOT NULL
 	name                    TEXT NOT NULL
 	time_signature          INTEGER NOT NULL                        assumed as /4
+	last_modified 			TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	FOREIGN KEY (user_id) REFERENCES users (id)
 
 TABLE chords
