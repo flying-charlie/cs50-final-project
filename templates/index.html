@@ -5,5 +5,50 @@
 {% endblock %}
 
 {% block main %}
-
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Stocks</th>
+    </tr>
+    <tbody>
+    {% for row in rows %}
+        <tr>
+            <td>{{row["symbol"]}}</td>
+            <td>{{row["quantity"]}}</td>
+            <td>{{row["value"]}}</td>
+            <td>{{row["total_value"]}}</td>
+            <td>
+                <form action="/buy" method="post">
+                    <input required id="symbol" name="symbol" placeholder="Symbol" type="hidden" value="{{row['symbol']}}"></input>
+                    <input class="w-25" style="max-width: 10em" autocomplete="off" required autofocus id="shares" name="shares" placeholder="Shares" type="number" step="1" min="1" value="1">
+                    <button class="btn btn-primary" type="submit">Buy</button>
+                </form>
+            </td>
+            <td>
+                <form action="/sell" method="post">
+                    <input required id="symbol" name="symbol" placeholder="Symbol" type="hidden" value="{{row['symbol']}}"></input>
+                    <input class="w-25" style="max-width: 10em" autocomplete="off" required autofocus id="shares" name="shares" placeholder="Shares" type="number" step="1" min="1" value="1">
+                    <button class="btn btn-primary" type="submit">Sell</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td></td>
+        <td></td>
+        <th>Cash</th>
+        <td>{{cash}}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <th>TOTAL</th>
+        <td>{{total_money}}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
 {% endblock %}
