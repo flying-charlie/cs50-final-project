@@ -55,6 +55,9 @@ def new():
         elif (not request.form.get("time_signature")) or (not is_int(request.form.get("time_signature"))) or (int(request.form.get("time_signature")) < 1):
             return apology("must provide a time signature (_/4)", 403)
 
+        elif db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ?", session.get("user_id"), request.form.get("name")):
+            return apology("There is already a progression whith that name", 403)
+
         db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
         id = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ? AND time_signature = ?", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
 
@@ -71,7 +74,8 @@ def edit():
     if request.method == "POST":
         return redirect("/edit")
     else:
-        return render_template("edit.html")
+        progression_id = request.args['id']
+        return render_template("edit.html", )
 
 
 @app.route("/login", methods=["GET", "POST"])
