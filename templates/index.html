@@ -8,20 +8,17 @@
 <table class="table table-striped">
     <tr>
         <th>Name</th>
-        <th>Stocks</th>
+        <th>Last modified</th>
     </tr>
     <tbody>
     {% for row in rows %}
         <tr>
-            <td>{{row["symbol"]}}</td>
-            <td>{{row["quantity"]}}</td>
-            <td>{{row["value"]}}</td>
-            <td>{{row["total_value"]}}</td>
+            <td>{{row["name"]}}</td>
+            <td>{{row["last_modified"]}}</td>
             <td>
-                <form action="/buy" method="post">
-                    <input required id="symbol" name="symbol" placeholder="Symbol" type="hidden" value="{{row['symbol']}}"></input>
-                    <input class="w-25" style="max-width: 10em" autocomplete="off" required autofocus id="shares" name="shares" placeholder="Shares" type="number" step="1" min="1" value="1">
-                    <button class="btn btn-primary" type="submit">Buy</button>
+                <form action="/edit" method="get">
+                    <input></input>
+                    <button class="btn btn-primary" type="submit">edit</button>
                 </form>
             </td>
             <td>
