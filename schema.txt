@@ -1,0 +1,28 @@
+TABLE users
+	id                      INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL
+	username                TEXT NOT NULL
+	hash                    TEXT NOT NULL
+
+TABLE progressions
+	id                      INTEGER PRIMARY KEY NOT NULL
+	user_id                 INTEGER NOT NULL
+	name                    TEXT NOT NULL
+	time_signature          INTEGER NOT NULL                        assumed as /4
+	FOREIGN KEY (user_id) REFERENCES users (id)
+
+TABLE chords
+	id                      INTEGER PRIMARY KEY NOT NULL
+	progression_id          INTEGER NOT NULL
+	time                    INTEGER NOT NULL                        in beats
+	length                  INTEGER NOT NULL                        in beats
+	FOREIGN KEY (progression_id) REFERENCES progressions(id)
+
+TABLE notes
+    chord_id                INTEGER NOT NULL
+    note                    TEXT NOT NULL                           eg c4, g6
+    FOREIGN KEY (chord_id) REFERENCES chords(id)
+
+UNIQUE INDEX username ON users (username)
+INDEX user_id ON progressions (user_id)
+INDEX progression_id ON chords (progression_id)
+INDEX chord_id ON notes (chord_id)
