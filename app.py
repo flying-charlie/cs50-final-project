@@ -40,7 +40,8 @@ def after_request(response):
 @login_required
 def index():
     #TODO show progressions and let user pick one to edit
-    return render_template("index.html", rows=[{id: "g31yuy31yg", name: "TeST", last_modified: "2/5/43"}, ])
+    data = db.execute("SELECT id, name, last_modified FROM progressions WHERE user_id = ?")
+    return render_template("index.html", rows=[{"id": "g31yuy31yg", "name": "TeST", "last_modified": "2/5/43"}, ])
 
 
 @app.route("/new", methods=["GET", "POST"])
