@@ -49,6 +49,12 @@ def new():
     """create new project"""
     #TODO
     if request.method == "POST":
+        if not request.form.get("name"):
+            return apology("must provide progression name", 403)
+
+        elif not request.form.get("password"):
+            return apology("must provide a time signature (_/4)", 403)
+
         return redirect("/edit")
     else:
         return render_template("new.html")
