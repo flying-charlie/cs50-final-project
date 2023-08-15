@@ -56,8 +56,9 @@ def new():
             return apology("must provide a time signature (_/4)", 403)
 
         db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
+        id = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ? AND time_signature = ?", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
 
-        return redirect(url_for('.edit', id=db.lastrowid))
+        return redirect(url_for('.edit', id=id))
     else:
         return render_template("new.html")
 
