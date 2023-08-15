@@ -57,7 +57,7 @@ def new():
 
         db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
 
-        return redirect("/edit")
+        return redirect(url_for('.edit', messages=messages))
     else:
         return render_template("new.html")
 
