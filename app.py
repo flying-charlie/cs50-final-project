@@ -39,7 +39,7 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    data = db.execute("SELECT id, name, last_modified FROM progressions WHERE user_id = ? ORDER BY last_modified", session.get("user_id"))
+    data = db.execute("SELECT id, name, last_modified FROM progressions WHERE user_id = ? ORDER BY last_modified DESC", session.get("user_id"))
     return render_template("index.html", rows=data)
 
 
