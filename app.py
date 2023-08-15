@@ -55,6 +55,8 @@ def new():
         elif not request.form.get("time_signature"):
             return apology("must provide a time signature (_/4)", 403)
 
+        
+
         return redirect("/edit")
     else:
         return render_template("new.html")
