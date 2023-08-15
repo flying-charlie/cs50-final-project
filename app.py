@@ -75,7 +75,7 @@ def edit():
         return redirect("/edit")
     else:
         progression_id = request.args['id']
-        return render_template("edit.html", )
+        return render_template("edit.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
