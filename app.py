@@ -52,10 +52,8 @@ def new():
         if not request.form.get("name"):
             return apology("must provide progression name", 403)
 
-        elif not request.form.get("time_signature"):
+        elif (not request.form.get("time_signature")) or (not is_int(request.form.get("shares"))) or (int(request.form.get("shares")) < 1):
             return apology("must provide a time signature (_/4)", 403)
-
-        
 
         return redirect("/edit")
     else:
