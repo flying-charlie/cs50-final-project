@@ -55,6 +55,8 @@ def new():
         elif (not request.form.get("time_signature")) or (not is_int(request.form.get("shares"))) or (int(request.form.get("shares")) < 1):
             return apology("must provide a time signature (_/4)", 403)
 
+        db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
+
         return redirect("/edit")
     else:
         return render_template("new.html")
