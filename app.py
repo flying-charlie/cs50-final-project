@@ -39,7 +39,6 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    #TODO show progressions and let user pick one to edit
     data = db.execute("SELECT id, name, last_modified FROM progressions WHERE user_id = ? ORDER BY last_modified", session.get("user_id"))
     return render_template("index.html", rows=data)
 
@@ -48,7 +47,6 @@ def index():
 @login_required
 def new():
     """create new project"""
-    #TODO
     if request.method == "POST":
         if not request.form.get("name"):
             return apology("must provide progression name", 403)
@@ -71,11 +69,12 @@ def new():
 @login_required
 def edit():
     """edit existing project"""
-    #TODO
     if request.method == "POST":
+        #TODO save the progression
         return redirect("/edit")
     else:
         progression_id = request.args['id']
+        #TODO let the user edit the progression
         return render_template("edit.html")
 
 
