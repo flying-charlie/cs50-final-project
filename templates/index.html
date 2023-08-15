@@ -17,7 +17,7 @@
             <td>{{row["last_modified"]}}</td>
             <td>
                 <form action="/edit" method="get">
-                    <input></input>
+                    <input type="hidden" name="id" value={{row["id"]}} />
                     <button class="btn btn-primary" type="submit">edit</button>
                 </form>
             </td>
