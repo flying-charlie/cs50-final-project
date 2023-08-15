@@ -1,5 +1,6 @@
 import os
 
+from sqlite3 import url_for
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
@@ -52,7 +53,7 @@ def new():
         if not request.form.get("name"):
             return apology("must provide progression name", 403)
 
-        elif (not request.form.get("time_signature")) or (not is_int(request.form.get("shares"))) or (int(request.form.get("shares")) < 1):
+        elif (not request.form.get("time_signature")) or (not is_int(request.form.get("time_signature"))) or (int(request.form.get("time_signature")) < 1):
             return apology("must provide a time signature (_/4)", 403)
 
         db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
