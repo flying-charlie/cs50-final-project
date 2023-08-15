@@ -17,35 +17,12 @@
             <td>{{row["last_modified"]}}</td>
             <td>
                 <form action="/edit" method="get">
-                    <input type="hidden" name="id" value={{row["id"]}} />
+                    <input type="hidden" name="id" value='{{row["id"]}}' />
                     <button class="btn btn-primary" type="submit">edit</button>
-                </form>
-            </td>
-            <td>
-                <form action="/sell" method="post">
-                    <input required id="symbol" name="symbol" placeholder="Symbol" type="hidden" value="{{row['symbol']}}"></input>
-                    <input class="w-25" style="max-width: 10em" autocomplete="off" required autofocus id="shares" name="shares" placeholder="Shares" type="number" step="1" min="1" value="1">
-                    <button class="btn btn-primary" type="submit">Sell</button>
                 </form>
             </td>
         </tr>
     {% endfor %}
-    <tr>
-        <td></td>
-        <td></td>
-        <th>Cash</th>
-        <td>{{cash}}</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <th>TOTAL</th>
-        <td>{{total_money}}</td>
-        <td></td>
-        <td></td>
-    </tr>
     </tbody>
 </table>
 {% endblock %}
