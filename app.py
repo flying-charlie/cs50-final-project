@@ -40,7 +40,7 @@ def after_request(response):
 @login_required
 def index():
     #TODO show progressions and let user pick one to edit
-    data = db.execute("SELECT id, name, last_modified FROM progressions WHERE user_id = ?", session.get("user_id"))
+    data = db.execute("SELECT id, name, last_modified FROM progressions WHERE user_id = ? ORDER BY last_modified", session.get("user_id"))
     return render_template("index.html", rows=data)
 
 
