@@ -19,8 +19,9 @@
             <td>
                 <form action="/edit" method="get">
                     <input type="hidden" name="id" value='{{row["id"]}}' />
-                    <button class="btn btn-primary" type="submit">edit</button>
+                    <button class="btn btn-primary" type="submit">Edit</button>
                 </form>
+                &nbsp&nbsp&nbsp
                 <form action="/delete" method="post" onsubmit="return confirm('Are you sure you want to delete?');">
                     <input type="hidden" name="id" value='{{row["id"]}}' />
                     <button class="btn btn-primary" type="submit">Delete</button>
