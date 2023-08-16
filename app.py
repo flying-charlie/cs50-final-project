@@ -60,8 +60,8 @@ def new():
         elif db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ?", session.get("user_id"), request.form.get("name")):
             return apology("There is already a progression with that name", "/new")
 
-        db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
-        data = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ? AND time_signature = ?", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
+        db.execute("INSERT INTO progressions (user_id, name, time_signature, tempo) VALUES (?,?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"), request.form.get("tempo"))
+        data = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ?", session.get("user_id"), request.form.get("name"))
 
         return redirect(url_for('.edit', id=data[0]["id"]))
     else:
