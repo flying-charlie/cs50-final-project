@@ -61,9 +61,9 @@ def new():
             return apology("There is already a progression with that name", "/new")
 
         db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
-        id = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ? AND time_signature = ?", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
+        data = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ? AND time_signature = ?", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
 
-        return redirect(url_for('.edit', id=id))
+        return redirect(url_for('.edit', id=data["id"]))
     else:
         return render_template("new.html")
 
@@ -79,17 +79,18 @@ def delete():
 @login_required
 def edit():
     """edit existing project"""
-    def encode(data):
-        
+    def encode(unencoded):
+        data = unencoded
 
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
         return redirect("/edit")
     else:
         progression_id = request.args['id']
+        print(request.args['id'])
         #TODO let the user edit the progression
         progression = db.execute("SELECT id, name, time_signature, tempo FROM progressions WHERE id = ? AND user_id = ?", progression_id, session.get("user_id"))
-
+        print(progression)
         if not progression:
             return apology("could not find this progression", "/")
 
