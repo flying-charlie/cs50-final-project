@@ -5,7 +5,7 @@ import urllib.parse
 from flask import flash,redirect, render_template, request, session
 from functools import wraps
 
-def apology(message, code=400):
+def apology(message, next):
     """Render message as an apology to user."""
     def escape(s):
         """
@@ -19,7 +19,7 @@ def apology(message, code=400):
         return s
 
     flash(message)
-    return render_template("apology.html", top=code, bottom=escape(message)), code
+    return render_template("apology.html", top=next, bottom=escape(message)), code
 
 
 def login_required(f):
