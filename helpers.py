@@ -19,7 +19,7 @@ def apology(message, next):
         return s
 
     flash(message)
-    return render_template("apology.html", top=next, bottom=escape(message)), code
+    return redirect(next)
 
 
 def login_required(f):
