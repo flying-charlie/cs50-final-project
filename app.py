@@ -81,7 +81,10 @@ def edit():
     """edit existing project"""
     def encode(data):
         chords = db.execute("SELECT id, time, length, name FROM chords WHERE progression_id = ? ORDER BY time", data["id"])
-        data.update({"chords":[x.update({notes[]}) for x in chords]})
+        for chord in chords:
+            notes = db.execute("SELECT note FROM notes WHERE chord_id = ?", chord["id"])
+            chord.update({"notes":[x["note"] for x in notes]})
+        data.update({"chords":chords})
         print(data)
 
     if request.method == "POST":
