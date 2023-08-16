@@ -58,7 +58,7 @@ def new():
             return apology("must provide a tempo (beats per minute)", 403)
 
         elif db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ?", session.get("user_id"), request.form.get("name")):
-            return apology("There is already a progression whith that name", 403)
+            return apology("There is already a progression with that name", 403)
 
         db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
         id = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ? AND time_signature = ?", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
