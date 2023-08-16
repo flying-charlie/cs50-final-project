@@ -62,7 +62,7 @@ def new():
 
         db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
         data = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ? AND time_signature = ?", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
-        print(data)
+
         return redirect(url_for('.edit', id=data[0]["id"]))
     else:
         return render_template("new.html")
@@ -79,22 +79,22 @@ def delete():
 @login_required
 def edit():
     """edit existing project"""
-    def encode(unencoded):
-        data = unencoded
+    def encode(data):
+        data.update({"chords":[]})
 
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
         return redirect("/edit")
     else:
         progression_id = request.args['id']
-        print(request.args['id'])
+        print(progression_id)
         #TODO let the user edit the progression
         progression = db.execute("SELECT id, name, time_signature, tempo FROM progressions WHERE id = ? AND user_id = ?", progression_id, session.get("user_id"))
-        print(progression)
+        print(progression[0])
         if not progression:
             return apology("could not find this progression", "/")
 
-        return render_template("edit.html", progression=encode(progression))
+        return render_template("edit.html", progression=encode(progression[0]))
 
 
 @app.route("/login", methods=["GET", "POST"])
