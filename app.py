@@ -79,7 +79,8 @@ def delete():
 @login_required
 def edit():
     """edit existing project"""
-    def encode():
+    def encode(data):
+        
 
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
