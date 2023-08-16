@@ -79,15 +79,20 @@ def delete():
 @login_required
 def edit():
     """edit existing project"""
+    def encode():
+
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
         return redirect("/edit")
     else:
         progression_id = request.args['id']
         #TODO let the user edit the progression
-        progression = db.execute("SELECT id, name, time_signature, tempo FROM progressions WHERE id = ?", progression_id)
+        progression = db.execute("SELECT id, name, time_signature, tempo FROM progressions WHERE id = ? AND user_id = ?", progression_id, session.get("user_id"))
 
-        return render_template("edit.html")
+        if not progression:
+            return apology("could not find this progression", "/")
+
+        return render_template("edit.html", progression=encode(progression))
 
 
 @app.route("/login", methods=["GET", "POST"])
