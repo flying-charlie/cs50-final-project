@@ -85,7 +85,7 @@ def edit():
             notes = db.execute("SELECT note FROM notes WHERE chord_id = ?", chord["id"])
             chord.update({"notes":[x["note"] for x in notes]})
         data.update({"chords":chords})
-        print(data)
+        return data
 
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
@@ -98,7 +98,7 @@ def edit():
 
         if not progression:
             return apology("could not find this progression", "/")
-
+        print(encode(progression[0]))
         return render_template("edit.html", progression=encode(progression[0]))
 
 
