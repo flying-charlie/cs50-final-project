@@ -16,7 +16,7 @@ TABLE chords
 	progression_id          INTEGER NOT NULL
 	time                    INTEGER NOT NULL                        in beats
 	length                  INTEGER NOT NULL                        in beats
-	name 					TEXT NOT NULL							eg C, Amin7
+	name 					TEXT NOT NULL							eg C, a
 	FOREIGN KEY (progression_id) REFERENCES progressions(id)
 
 TABLE notes
