@@ -71,7 +71,7 @@ def new():
 @login_required
 def delete():
     """delete project"""
-    db.execute("")
+    db.execute("DELETE FROM progressions WHERE id = ? AND user_id = ?", request.form.get("id"), )
     return redirect("/")
 
 
