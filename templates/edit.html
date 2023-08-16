@@ -5,5 +5,20 @@
 {% endblock %}
 
 {% block main %}
-
+<h1>{{progression["name"]}}</h1>
+{{progression["time_signature"]}}/4  {{progression["tempo"]}}bpm
+<table class="table table-striped">
+    <tr>
+        <th>Chord</th>
+        <th>Notes</th>
+    </tr>
+    <tbody>
+    {% for chord in progression["chords"] %}
+        <tr>
+            <td>{{chord["name"]}}</td>
+            <td>{{chord["notes"]}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
