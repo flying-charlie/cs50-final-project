@@ -67,6 +67,13 @@ def new():
     else:
         return render_template("new.html")
 
+@app.route("/delete", methods=["POST"])
+@login_required
+def delete():
+    """delete project"""
+    db.execute("")
+    return redirect("/")
+
 
 @app.route("/edit", methods=["GET", "POST"])
 @login_required
