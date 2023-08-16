@@ -80,17 +80,20 @@ def delete():
 def edit():
     """edit existing project"""
     def encode(data):
-        data.update({"chords":[]})
+        chords = db.execute("SELECT id, time, length, name FROM chords WHERE progression_id = ? ORDER BY time", data["id"])
+        print("chords = ")
+        print(chords)
+        data.update({"chords":chords})
 
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
         return redirect("/edit")
     else:
         progression_id = request.args['id']
-        print(progression_id)
+
         #TODO let the user edit the progression
         progression = db.execute("SELECT id, name, time_signature, tempo FROM progressions WHERE id = ? AND user_id = ?", progression_id, session.get("user_id"))
-        print(progression[0])
+
         if not progression:
             return apology("could not find this progression", "/")
 
