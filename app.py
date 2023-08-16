@@ -62,8 +62,8 @@ def new():
 
         db.execute("INSERT INTO progressions (user_id, name, time_signature) VALUES (?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
         data = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ? AND time_signature = ?", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"))
-
-        return redirect(url_for('.edit', id=data["id"]))
+        print(data)
+        return redirect(url_for('.edit', id=data[0]["id"]))
     else:
         return render_template("new.html")
 
