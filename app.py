@@ -80,12 +80,12 @@ def delete():
 def edit():
     """edit existing project"""
     if request.method == "POST":
-        #TODO save the progression
+        #TODO save the progression (remember to update last modified)
         return redirect("/edit")
     else:
         progression_id = request.args['id']
         #TODO let the user edit the progression
-        progression = db.execute("SELECT name, time_signature, tempo FROM progressions WHERE id = ?", progression_id)
+        progression = db.execute("SELECT id, name, time_signature, tempo FROM progressions WHERE id = ?", progression_id)
 
         return render_template("edit.html")
 
