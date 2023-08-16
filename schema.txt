@@ -1,3 +1,4 @@
+
 TABLE users
 	id                      INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL
 	username                TEXT NOT NULL
@@ -9,6 +10,7 @@ TABLE progressions
 	name                    TEXT NOT NULL
 	time_signature          INTEGER NOT NULL                        assumed as /4
 	last_modified 			TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	tempo 					INTEGER NOT NULL
 	FOREIGN KEY (user_id) REFERENCES users (id)
 
 TABLE chords
