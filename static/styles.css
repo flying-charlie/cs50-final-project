@@ -30,3 +30,7 @@ table
 form {
     display: inline-block;
 }
+
+.note_input {
+    text-decoration: none !important;
+}
