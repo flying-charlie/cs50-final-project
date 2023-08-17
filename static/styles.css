@@ -29,3 +29,7 @@ table
 form {
     display: inline-block;
 }
+
+a .note_input {
+    text-decoration: none;
+}

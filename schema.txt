@@ -30,3 +30,37 @@ UNIQUE INDEX username ON users (username)
 INDEX user_id ON progressions (user_id)
 INDEX progression_id ON chords (progression_id)
 INDEX chord_id ON notes (chord_id)
+
+example:
+
+progression =
+{
+	"id": "hwt34i"
+	"name": "bob"
+	"time_signature": 4
+	"tempo": 140
+	"chords": [
+		{
+			id: "2ag34"
+			time: 0
+			length: 4
+			name: "G"
+			notes: [
+				"G",
+				"B",
+				"D"
+			]
+		},
+		{
+			id: "2ag35"
+			time: 4
+			length: 4
+			name: "C"
+			notes: [
+				"C",
+				"E",
+				"G"
+			]
+		}
+	]
+}
