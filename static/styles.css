@@ -38,3 +38,12 @@ form {
 .major_chord {
     font-size: 50px;
 }
+
+.note_input {
+    transition: all 0.5s;
+    transform-origin: 50% 50%;
+}
+
+.note_input:hover {
+    transform: scale(1.1);
+}
