@@ -34,3 +34,7 @@ form {
 .note_input {
     text-decoration: none !important;
 }
+
+.major_chord {
+    font-size: 50px;
+}
