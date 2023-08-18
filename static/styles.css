@@ -36,7 +36,7 @@ form {
 }
 
 .major_chord {
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .note_input {
@@ -46,4 +46,8 @@ form {
 
 .note_input:hover {
     transform: scale(1.03);
+}
+
+.minor_chord {
+    font-size:28px;
 }
