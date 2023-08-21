@@ -52,6 +52,11 @@ form {
     font-size:28px;
 }
 
-.center {
+.display_chord.center {
     font-size: 100px
+}
+
+.display_chord.edge {
+    font-size: 80px
+    opacity: 0.5;
 }
