@@ -60,3 +60,7 @@ form {
     color: rgba(0, 0, 0, 0.5);
     font-size: 80px
 }
+
+.note_input.selected {
+    color: #FFFFFF
+}
