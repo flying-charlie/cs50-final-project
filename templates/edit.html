@@ -191,7 +191,7 @@
 <script>
     progression = {{progression|safe}};
     function test() {
-        alert(chord_query(2));
+        alert(chord_query(3));
     }
 
     function chord_query(time) {
@@ -211,7 +211,7 @@
         // removes any chord that is playing at that time
         for (let i = 0; i < progression["chords"].length; i++) {
             if ((progression["chords"][i]["time"] <= time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > time)) {
-                return 1
+                
             }
         }
     }
