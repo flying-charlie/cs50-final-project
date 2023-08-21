@@ -190,7 +190,8 @@
 
     progression = {{progression|safe}};
     function test() {
-        alert(get_notes("G", ["7th"]));
+        add_chord("G", 0, 4, [])
+        alert(JSON.stringify(progression));
     }
 
     function chord_query(time) {
