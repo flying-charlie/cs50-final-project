@@ -13,12 +13,6 @@
 <h1>{{progression["name"]}}</h1>
 {{progression["time_signature"]}}/4, {{progression["tempo"]}}bpm
 
-
-<!-- Test -->
-<button onclick="test()">&nbspTe&nbsp&nbsps&nbspt&nbsp</button>
-
-
-
 <div class="sidebar">
     <div>
         <h5>Length (beats):</h5>
@@ -194,8 +188,8 @@
 
 {% block code %}
     <script>
+        progression = {{progression|safe}};
         function test() {
-            progression = {{progression|safe}};
             alert(JSON.stringify(progression));
         }
     </script>
