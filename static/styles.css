@@ -65,6 +65,8 @@ form {
     fill: red
 }
 
-.menu {
+.sidebar {
+    top: 20px;
+    left: 10px;
     font-size: 30px
 }

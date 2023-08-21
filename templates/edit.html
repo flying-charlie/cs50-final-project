@@ -8,6 +8,20 @@
 <h1>{{progression["name"]}}</h1>
 {{progression["time_signature"]}}/4, {{progression["tempo"]}}bpm
 
+<div class="sidebar">
+    Length (beats):
+    <select id="length">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+    </select>
+</div>
+
 <div>
     <text class="display_chord edge">F</text>
     <text class="display_chord edge">/</text>
@@ -152,19 +166,5 @@
             <text x="420" y="420" fill="#FFFFFF" text-anchor="middle" alignment-baseline="middle" class="minor_chord">Add</text>
         </a>
     </svg>
-</div>
-
-<div class="menu">
-    Length (beats):
-    <select id="length">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-    </select>
 </div>
 {% endblock %}
