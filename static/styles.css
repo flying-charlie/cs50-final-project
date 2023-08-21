@@ -57,5 +57,6 @@ form {
 }
 
 .display_chord.edge {
+    color: rgba(0, 0, 0, 0.5);
     font-size: 80px
 }
