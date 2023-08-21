@@ -233,7 +233,10 @@
         else {
             notes.append(scale[(start_index + 4) % 12])
         }
-        notes.append(scale[(start_index + 3) % 12])
+        notes.append(scale[(start_index + 7) % 12])
+        if extensions.includes("7th") {
+            notes.append(scale[(start_index + 7) % 12])
+        }
 
     }
 
