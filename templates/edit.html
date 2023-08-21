@@ -225,7 +225,11 @@
             name.slice(0, -3);
             minor = true;
         }
-        notes.append(name)
+        notes = [name]
+        if minor {
+            notes.append(name)
+        }
+        notes.indexOf(name)
     }
 
     function add_chord(name, time, length, extensions) {
