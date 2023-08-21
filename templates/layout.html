@@ -15,8 +15,6 @@
 
         <title>ProgressionPilot: {% block title %}{% endblock %}</title>
 
-        {% block code %}{% endblock %}
-
     </head>
 
     <body>
@@ -57,6 +55,15 @@
         <main class="container-fluid py-5 text-center">
             {% block main %}{% endblock %}
         </main>
+
+        {% block code %}{% endblock %}
+
+        <script>
+            function test() {
+                progression = {{progression}};
+                alert(progression);
+            }
+        </script>
 
     </body>
 
