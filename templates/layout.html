@@ -32,6 +32,7 @@
                     {% if session["user_id"] %}
                         <ul class="navbar-nav me-auto mt-2">
                             <li class="nav-item"><form action="/new"><button class="btn btn-primary">New progression</button></form></li>
+                            {% block items %}{% endblock %}
                         </ul>
                         <ul class="navbar-nav ms-auto mt-2">
                             <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
