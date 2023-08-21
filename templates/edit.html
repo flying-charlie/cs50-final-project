@@ -206,5 +206,14 @@
         }
         return 0
     }
+
+    function remove_chord(time) {
+        // removes any chord that is playing at that time
+        for (let i = 0; i < progression["chords"].length; i++) {
+            if ((progression["chords"][i]["time"] <= time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > time)) {
+                return 1
+            }
+        }
+    }
 </script>
 {% endblock %}
