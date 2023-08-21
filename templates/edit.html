@@ -200,36 +200,36 @@
         // returns the chord starting at that time, 1 if continuing an existing chord and 0 if empty
         for (let i = 0; i < progression["chords"].length; i++) {
             if (progression["chords"][i]["time"] == time) {
-                return progression["chords"][i]["name"]
+                return progression["chords"][i]["name"];
             }
             else if ((progression["chords"][i]["time"] < time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > time)) {
-                return 1
+                return 1;
             }
         }
-        return 0
+        return 0;
     }
 
     function remove_chord(time) {
         // removes any chord that is playing at that time
         for (let i = 0; i < progression["chords"].length; i++) {
             if ((progression["chords"][i]["time"] <= time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > time)) {
-                progression["chords"].splice(i, 1)
-                return
+                progression["chords"].splice(i, 1);
+                return;
             }
         }
     }
 
     function get_notes(name) {
-        
+        .slice(0, -1);
     }
 
     function add_chord(name, time, length) {
         for (let i = 0; i < length; i++) {
-            remove_chord(time + i)
+            remove_chord(time + i);
         }
         notes =
-        progression["chords"].append({"time": time, "name": name, "length": length, "notes": notes})
-        return
+        progression["chords"].append({"time": time, "name": name, "length": length, "notes": notes});
+        return;
     }
 </script>
 {% endblock %}
