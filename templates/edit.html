@@ -14,8 +14,8 @@
 {{progression["time_signature"]}}/4, {{progression["tempo"]}}bpm
 
 
-
-<button onclick="test()">Try it</button>
+<!-- Test -->
+<button onclick="test()">&nbspTe&nbsp&nbsps&nbspt&nbsp</button>
 
 
 
@@ -196,7 +196,7 @@
     <script>
         function test() {
             progression = {{progression|safe}};
-            alert(progression);
+            alert(JSON.stringify(progression));
         }
     </script>
 {% endblock %}
