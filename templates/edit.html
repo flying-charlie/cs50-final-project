@@ -30,7 +30,7 @@
     <div>
         <h5>Extensions</h5>
         7th
-        <input type="checkbox" id="7th" class="extension">
+        <input type="checkbox" id="dominant 7th" class="extension">
         <br>
         9th
         <input type="checkbox" id="9th" class="extension">
@@ -235,7 +235,7 @@
         }
         notes.append(scale[(start_index + 7) % 12])
         if extensions.includes("7th") {
-            notes.append(scale[(start_index + 7) % 12])
+            notes.append(scale[(start_index + 10) % 12])
         }
 
     }
