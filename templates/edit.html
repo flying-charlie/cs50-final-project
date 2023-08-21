@@ -196,8 +196,11 @@
         function chord_query(time) {
             // returns the chord starting at that time, 1 if continuing an existing chord and 0 if empty
             for (let i = 0; i < progression["chords"].length; i++) {
-                if (progression["chords"][i]["time"] && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > time)) {
-
+                if (progression["chords"][i]["time"] == time) {
+                    return progression["chords"][i]["name"]
+                }
+                else if ((progression["chords"][i]["time"] < time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > time)) {
+                    return 1
                 }
             }
         }
