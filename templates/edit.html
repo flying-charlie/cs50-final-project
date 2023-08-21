@@ -190,7 +190,7 @@
 
     progression = {{progression|safe}};
     function test() {
-        add_chord("G", 0, 4, [])
+        add_chord("C", 4, 4, [])
         alert(JSON.stringify(progression));
     }
 
@@ -252,7 +252,7 @@
         }
         prev = -1
         for (let i = 0; i < progression["chords"].length; i++) {
-            if (progression["chords"][i][time]) < time {
+            if (progression["chords"][i][time] < time) {
                 prev = progression["chords"][i][time]
             }
             else { break; }
