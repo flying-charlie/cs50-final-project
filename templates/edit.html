@@ -228,8 +228,12 @@
         notes = [name]
         start_index = scale.indexOf(name)
         if minor {
-            notes.append(scale[start_index + 3])
+            notes.append(scale[(start_index + 3) % 12])
         }
+        else {
+            notes.append(scale[(start_index + 4) % 12])
+        }
+        notes.append(scale[(start_index + 3) % 12])
 
     }
 
