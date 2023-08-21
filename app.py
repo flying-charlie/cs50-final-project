@@ -99,7 +99,7 @@ def edit():
         if not progression:
             return apology("could not find this progression", "/")
         print(encode(progression[0]))
-        return render_template("edit.html", progression=encode(progression[0]))
+        return render_template("edit.html", progression=progression[0])
 
 
 @app.route("/login", methods=["GET", "POST"])
