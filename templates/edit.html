@@ -257,7 +257,7 @@
             }
             else { break; }
         }
-        progression["chords"].append({"time": time, "name": name, "length": length, "notes": notes});
+        progression["chords"].splice(prev + 1, 0, {"time": time, "name": name, "length": length, "notes": notes});
         return;
     }
 </script>
