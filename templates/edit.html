@@ -189,6 +189,8 @@
 
 {% block code %}
 <script>
+    {"C": []}
+
     progression = {{progression|safe}};
     function test() {
         alert(chord_query(3));
@@ -211,9 +213,15 @@
         // removes any chord that is playing at that time
         for (let i = 0; i < progression["chords"].length; i++) {
             if ((progression["chords"][i]["time"] <= time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > time)) {
-                
+                progression["chords"].splice(i, 1)
+                return
             }
         }
+
+        // REMOVE AFTER FINISH!!!
+        alert("could not remove chord")
     }
+
+    function add_chord(name, time, length)
 </script>
 {% endblock %}
