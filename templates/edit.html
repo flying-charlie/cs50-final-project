@@ -189,7 +189,7 @@
 
 {% block code %}
 <script>
-    {"C": ["C4", "E4", "G4"]}
+    chords = {"C": ["C4", "E4", "G4"]}
 
     progression = {{progression|safe}};
     function test() {
@@ -222,6 +222,8 @@
         alert("could not remove chord")
     }
 
-    function add_chord(name, time, length)
+    function add_chord(name, time, length) {
+        return
+    }
 </script>
 {% endblock %}
