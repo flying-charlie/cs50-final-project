@@ -251,8 +251,11 @@
             name += "7"
         }
         prev = -1
-        for (let i = 0; i < time; i++) {
-            
+        for (let i = 0; i < progression["chords"].length; i++) {
+            if (progression["chords"][i][time]) < time {
+                prev = progression["chords"][i][time]
+            }
+            else { break; }
         }
         progression["chords"].append({"time": time, "name": name, "length": length, "notes": notes});
         return;
