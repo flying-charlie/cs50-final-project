@@ -6,12 +6,19 @@
 
 {% block items %}
     &nbsp
-    <li class="nav-item"><button class="btn btn-primary" id="save" onclick="text()">Save</button></li>
+    <li class="nav-item"><button class="btn btn-primary" id="save">Save</button></li>
 {% endblock %}
 
 {% block main %}
 <h1>{{progression["name"]}}</h1>
 {{progression["time_signature"]}}/4, {{progression["tempo"]}}bpm
+
+
+
+<button onclick="test()">Try it</button>
+
+
+
 
 <div class="sidebar">
     <div>
@@ -190,7 +197,7 @@
     <script>
         function test() {
             progression = {{progression}};
-        alert("hi");
+            alert("hi");
         }
     </script>
 {% endblock %}
