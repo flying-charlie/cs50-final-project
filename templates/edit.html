@@ -195,7 +195,7 @@
 {% block code %}
     <script>
         function test() {
-            progression = {{progression}};
+            progression = {{progression|safe}};
             alert(progression);
         }
     </script>
