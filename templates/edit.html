@@ -6,7 +6,7 @@
 
 {% block items %}
     &nbsp
-    <li class="nav-item"><button class="btn btn-primary" id="save">Save</button></li>
+    <li class="nav-item"><button class="btn btn-primary" id="save" onclick="text()">Save</button></li>
 {% endblock %}
 
 {% block main %}
@@ -188,8 +188,9 @@
 
 {% block code %}
     <script>
-        progression = {{progression}};
-        alert(progression);
-        alert("fdasd");
+        function test() {
+            progression = {{progression}};
+        alert("hi");
+        }
     </script>
 {% endblock %}
