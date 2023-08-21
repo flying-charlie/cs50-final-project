@@ -29,11 +29,8 @@
     </div>
     <div>
         <h5>Extensions</h5>
-        7th
-        <input type="checkbox" id="dominant 7th" class="extension">
-        <br>
-        9th
-        <input type="checkbox" id="9th" class="extension">
+        dominant 7th
+        <input type="checkbox" id="7th" class="extension">
     </div>
 </div>
 
@@ -193,7 +190,7 @@
 
     progression = {{progression|safe}};
     function test() {
-        alert(JSON.stringify(progression));
+        alert(JSON.stringify(get_notes("C")));
     }
 
     function chord_query(time) {
@@ -221,21 +218,25 @@
 
     function get_notes(name, extensions) {
         minor = false;
-        if name.includes("min") {
+        if (name.includes("min")) {
             name.slice(0, -3);
             minor = true;
         }
-        notes = [name]
-        start_index = scale.indexOf(name)
-        if minor {
-            notes.append(scale[(start_index + 3) % 12])
+
+        notes = [name];
+        start_index = scale.indexOf(name);
+
+        if (minor) {
+            notes.push(scale[(start_index + 3) % 12]);
         }
         else {
-            notes.append(scale[(start_index + 4) % 12])
+            notes.push(scale[(start_index + 4) % 12]);
         }
-        notes.append(scale[(start_index + 7) % 12])
-        if extensions.includes("7th") {
-            notes.append(scale[(start_index + 10) % 12])
+
+        notes.push(scale[(start_index + 7) % 12]);
+
+        if (extensions.includes("7th")) {
+            notes.push(scale[(start_index + 10) % 12]);
         }
 
     }
@@ -245,6 +246,9 @@
             remove_chord(time + i);
         }
         notes = get_notes(name, extensions)
+        if (extensions.includes("7th")) {
+
+        }
         progression["chords"].append({"time": time, "name": name, "length": length, "notes": notes});
         return;
     }

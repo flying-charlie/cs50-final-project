@@ -18,12 +18,12 @@ TABLE chords
 	progression_id          INTEGER NOT NULL
 	time                    INTEGER NOT NULL                        in beats
 	length                  INTEGER NOT NULL                        in beats
-	name 					TEXT NOT NULL							eg C, Am
+	name 					TEXT NOT NULL							eg C, Amin
 	FOREIGN KEY (progression_id) REFERENCES progressions(id)
 
 TABLE notes
     chord_id                INTEGER NOT NULL
-    note                    TEXT NOT NULL                           eg c4, g6
+    note                    TEXT NOT NULL                           eg C, G
     FOREIGN KEY (chord_id) REFERENCES chords(id)
 
 UNIQUE INDEX username ON users (username)
