@@ -184,14 +184,27 @@
         </a>
     </svg>
 </div>
+<button onclick="test()">&nbspTe&nbsp&nbsps&nbspt&nbsp</button>
 {% endblock %}
 
 {% block code %}
-    <script>
-        
-        function test() {
+<script>
+    progression = {{progression|safe}};
+    function test() {
+        alert(chord_query(2535));
+    }
 
-            alert(JSON.stringify(progression));
+    function chord_query(time) {
+        // returns the chord starting at that time, 1 if continuing an existing chord and 0 if empty
+        for (let i = 0; i < progression["chords"].length; i++) {
+            if (progression["chords"][i]["time"] == time) {
+                return progression["chords"][i]["name"]
+            }
+            else if ((progression["chords"][i]["time"] < time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > time)) {
+                return 1
+            }
         }
-    </script>
+        return 0
+    }
+</script>
 {% endblock %}
