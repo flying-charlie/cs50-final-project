@@ -192,6 +192,11 @@
 </div>
 {% endblock %}
 
-{% block script %}
-    
+{% block code %}
+    <script>
+        function test() {
+            progression = {{progression}};
+            alert(progression);
+        }
+    </script>
 {% endblock %}
