@@ -190,7 +190,7 @@
 
     progression = {{progression|safe}};
     function test() {
-        alert(JSON.stringify(get_notes("C")));
+        alert(get_notes("G", ["7th"]));
     }
 
     function chord_query(time) {
@@ -238,7 +238,7 @@
         if (extensions.includes("7th")) {
             notes.push(scale[(start_index + 10) % 12]);
         }
-
+        return notes;
     }
 
     function add_chord(name, time, length, extensions) {
@@ -247,7 +247,7 @@
         }
         notes = get_notes(name, extensions)
         if (extensions.includes("7th")) {
-
+            name += "
         }
         progression["chords"].append({"time": time, "name": name, "length": length, "notes": notes});
         return;
