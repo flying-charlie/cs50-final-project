@@ -193,7 +193,7 @@
 
     progression = {{progression|safe}};
     function test() {
-        alert(chord_query(3));
+        alert(JSON.stringify(progression));
     }
 
     function chord_query(time) {
@@ -226,7 +226,7 @@
         for (let i = 0; i < length; i++) {
             remove_chord(time + i)
         }
-        progression["chords"].
+        progression["chords"].append({})
         return
     }
 </script>
