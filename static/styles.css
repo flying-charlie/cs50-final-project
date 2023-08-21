@@ -61,6 +61,6 @@ form {
     font-size: 80px
 }
 
-.note_input.selected path {
-    fill: #303030
+.note_input.selected {
+
 }
