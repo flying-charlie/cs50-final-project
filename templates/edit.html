@@ -189,7 +189,7 @@
 
 {% block code %}
 <script>
-    notes = ["Ab", "A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G"]
+    scale = ["Ab", "A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G"]
 
     progression = {{progression|safe}};
     function test() {
@@ -226,10 +226,11 @@
             minor = true;
         }
         notes = [name]
+        start_index = scale.indexOf(name)
         if minor {
-            notes.append(name)
+            notes.append(scale[start_index + 3])
         }
-        notes.indexOf(name)
+
     }
 
     function add_chord(name, time, length, extensions) {
