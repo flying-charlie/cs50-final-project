@@ -217,16 +217,18 @@
                 return
             }
         }
+    }
 
-        // REMOVE AFTER FINISH!!!
-        alert("could not remove chord")
+    function get_notes(name) {
+        
     }
 
     function add_chord(name, time, length) {
         for (let i = 0; i < length; i++) {
             remove_chord(time + i)
         }
-        progression["chords"].append({})
+        notes =
+        progression["chords"].append({"time": time, "name": name, "length": length, "notes": notes})
         return
     }
 </script>

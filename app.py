@@ -82,7 +82,7 @@ def edit():
     def encode(data):
         chords = db.execute("SELECT id, time, length, name FROM chords WHERE progression_id = ? ORDER BY time", data["id"])
         for chord in chords:
-            notes = db.execute("SELECT note FROM notes WHERE chord_id = ?", chord["id"])
+            notes = db.execute("SELECT note FROM notes WHERE chord_id = ?", chord.pop("id"))
             chord.update({"notes":[x["note"] for x in notes]})
         data.update({"chords":chords})
         return data
