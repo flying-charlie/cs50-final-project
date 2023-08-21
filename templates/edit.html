@@ -219,15 +219,20 @@
         }
     }
 
-    function get_notes(name) {
-        .slice(0, -1);
+    function get_notes(name, extensions) {
+        minor = false;
+        if name.includes("min") {
+            name.slice(0, -3);
+            minor = true;
+        }
+        notes.append(name)
     }
 
-    function add_chord(name, time, length) {
+    function add_chord(name, time, length, extensions) {
         for (let i = 0; i < length; i++) {
             remove_chord(time + i);
         }
-        notes =
+        notes = get_notes(name, extensions)
         progression["chords"].append({"time": time, "name": name, "length": length, "notes": notes});
         return;
     }
