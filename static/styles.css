@@ -92,6 +92,7 @@ form {
 #left {
     position: absolute;
     left: 0;
+    padding: 30px 15px;
 }
 
 #chords {
@@ -103,4 +104,5 @@ form {
 #right {
     position: absolute;
     right: 0;
+    padding: 30px 15px;
 }
