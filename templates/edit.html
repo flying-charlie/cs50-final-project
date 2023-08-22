@@ -22,7 +22,7 @@
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
-            <option value="4">4</option>
+            <option value="4" selected="selected">4</option>
             <option value="5">5</option>
             <option value="6">6</option>
             <option value="7">7</option>
@@ -164,7 +164,7 @@
             <text x="756.1" y="333.7" fill="#FFFFFF" text-anchor="middle" alignment-baseline="middle" class="major_chord">A</text>
         </a>
 
-        <a href="#" id="F#min" class="note_input minor" onclick="select()">
+        <a href="#" id="F#min" class="note_input minor" onclick="select(this)">
             <path d="M 519.2129 416.3398 A 85.5526 85.5526 90 0 0 507.7511 373.5634 L 655.9313 288.0086 A 266.6667 266.6667 90 0 1 690.3182 416.3398 Z" />
             <text x="598.4698" y="372.1792" fill="#FFFFFF" text-anchor="middle" alignment-baseline="middle" class="minor_chord">F#min</text>
         </a>
@@ -327,6 +327,9 @@
         left_text = "";
         for (let i = time - DISPLAY_WIDTH; i < time; i++) {
             if (i >= 0) {
+                if (i % progression["time_signature"] == 0) {
+                    left_text += "&nbsp&nbsp"
+                }
                 left_text += chord_query(i);
             }
             else {
@@ -339,6 +342,9 @@
         last_play = get_last_play()
         for (let i = time + 1; i < time + 1 + DISPLAY_WIDTH; i++) {
             if (i <= (last_play + progression["time_signature"])) {
+                if (i % progression["time_signature"] == 0) {
+                    right_text += "&nbsp&nbsp"
+                }
                 right_text += chord_query(i)
             }
             else {
