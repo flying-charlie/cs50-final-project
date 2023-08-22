@@ -91,6 +91,7 @@ form {
 
 #left {
     position: fixed;
+    left: 100px;
 }
 
 #right {
