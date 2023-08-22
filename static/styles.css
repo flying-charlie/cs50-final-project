@@ -88,3 +88,11 @@ form {
     width: 20px;
     height: 20px;
 }
+
+#left {
+    position: fixed;
+}
+
+#right {
+    position: fixed;
+}
