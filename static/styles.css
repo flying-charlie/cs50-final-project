@@ -90,7 +90,7 @@ form {
 }
 
 #left {
-    position: fixed;
+    position: absolute;
     left: 100px;
 }
 
