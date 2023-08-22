@@ -91,14 +91,16 @@ form {
 
 #left {
     position: absolute;
-    left: 100px;
+    left: 0;
 }
 
 #chords {
     position: relative;
-    width: 500px;
+    width: auto;
+    margin: auto;
 }
 
 #right {
-    position: fixed;
+    position: absolute;
+    right: 0;
 }
