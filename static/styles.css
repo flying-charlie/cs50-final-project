@@ -94,17 +94,11 @@ form {
 }
 
 #left {
-    position: fixed;
-    left: 50%;
-}
-
-#chords {
     position: relative;
-    width: 800;
-    margin: auto;
+    left: 0
 }
 
 #right {
-    position: fixed;
-    right: 50%;
+    position: relative;
+    right: 0
 }
