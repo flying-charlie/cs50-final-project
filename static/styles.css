@@ -94,6 +94,10 @@ form {
     left: 100px;
 }
 
+#chords {
+    position: relative;
+}
+
 #right {
     position: fixed;
 }
