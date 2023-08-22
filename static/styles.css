@@ -73,7 +73,7 @@ form {
 }
 
 .sidebar {
-    width: 180px;
+    width: 300px;
     position: fixed;
     z-index: 1;
     background: #eee;
@@ -81,7 +81,11 @@ form {
     padding: 8px 0;
     top: 100px;
     left: 10px;
-    font-size: 20px
+    font-size: 40px
+}
+
+.sidebar h5 {
+    font-size: 40px
 }
 
 .extension {
