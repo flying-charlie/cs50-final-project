@@ -31,10 +31,6 @@ form {
     display: inline-block;
 }
 
-.note_input {
-    text-decoration: none !important;
-}
-
 .major_chord {
     font-size: 60px;
 }
@@ -42,9 +38,20 @@ form {
 .note_input {
     transition: all 0.5s;
     transform-origin: 50% 50%;
+    text-decoration: none !important;
+}
+
+.note_submit {
+    transition: all 0.5s;
+    transform-origin: 50% 50%;
+    text-decoration: none !important;
 }
 
 .note_input:hover {
+    transform: scale(1.03);
+}
+
+.note_submit:hover {
     transform: scale(1.03);
 }
 
