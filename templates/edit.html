@@ -239,11 +239,11 @@
         for (let i = 0; i < progression["chords"].length; i++) {
             if ((progression["chords"][i]["time"] <= time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > time)) {
                 progression["chords"].splice(i, 1);
+                update_save()
+                select_update(selected_time)
                 return;
             }
         }
-        update_save()
-        select_update(selected_time)
     }
 
     function get_last_play() {
