@@ -91,6 +91,7 @@ def edit():
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
         data = json.loads(request.form.get("data"))
+        user_id = session.get("user_id")
         
         print(data)
         return redirect("/")
