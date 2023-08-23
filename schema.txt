@@ -19,12 +19,12 @@ TABLE chords
 	time                    INTEGER NOT NULL                        in beats
 	length                  INTEGER NOT NULL                        in beats
 	name 					TEXT NOT NULL							eg C, Amin
-	FOREIGN KEY (progression_id) REFERENCES progressions(id)
+	FOREIGN KEY (progression_id) REFERENCES progressions(id) ON DELETE CASCADE
 
 TABLE notes
     chord_id                INTEGER NOT NULL
     note                    TEXT NOT NULL                           eg C, G
-    FOREIGN KEY (chord_id) REFERENCES chords(id)
+    FOREIGN KEY (chord_id) REFERENCES chords(id) ON DELETE CASCADE
 
 UNIQUE INDEX username ON users (username)
 INDEX user_id ON progressions (user_id)
