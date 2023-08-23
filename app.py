@@ -89,7 +89,8 @@ def edit():
 
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
-        return redirect("/edit")
+        print(request.form.get("data") + "jubgau")
+        return redirect("/")
     else:
         progression_id = request.args['id']
 
@@ -98,7 +99,6 @@ def edit():
 
         if not progression:
             return apology("could not find this progression", "/")
-        print(encode(progression[0]))
         return render_template("edit.html", progression=progression[0])
 
 
