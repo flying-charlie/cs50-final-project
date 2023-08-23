@@ -5,6 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session, url
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+import json
 
 from helpers import apology, login_required
 
@@ -89,8 +90,8 @@ def edit():
 
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
-        print(request.form.get("data"))
-        
+        data = json.loads(request.form.get("data"))
+        print(data)
         return redirect("/")
     else:
         progression_id = request.args['id']
