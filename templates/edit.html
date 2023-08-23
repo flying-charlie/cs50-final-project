@@ -8,7 +8,13 @@
 
 {% block items %}
     &nbsp
-    <li class="nav-item"><button class="btn btn-primary" id="save" onclick="save()">Save</button></li>
+    <li class="nav-item">
+        <form></form>
+            <button class="btn btn-primary" id="save">
+
+            </button>
+        </form>
+    </li>
 {% endblock %}
 
 {% block main %}
@@ -199,10 +205,6 @@
             item.classList.remove("selected")
         }
         element.classList.add("selected");
-    }
-
-    function save() {
-        
     }
 
     function test() {
