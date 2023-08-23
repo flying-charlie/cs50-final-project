@@ -63,6 +63,7 @@ def new():
 
         db.execute("INSERT INTO progressions (user_id, name, time_signature, tempo) VALUES (?,?,?,?)", session.get("user_id"), request.form.get("name"), request.form.get("time_signature"), request.form.get("tempo"))
         data = db.execute("SELECT id FROM progressions WHERE user_id = ? AND name = ?", session.get("user_id"), request.form.get("name"))
+        # please add getting previous query data to the library so this isnt required (like last_insert_rowid() in sqlite)
 
         return redirect(url_for('.edit', id=data[0]["id"]))
     else:
@@ -95,6 +96,9 @@ def edit():
         db.execute("INSERT INTO progressions (id, user_id, name, time_signature, tempo) VALUES (?,?,?,?)", data["id"], session.get("user_id"), data["name"],data["time_signature"], data["tempo"])
         for chord in data["chords"]:
             db.execute("INSERT INTO chords (progression_id, time, length, name) VALUES (?,?,?,?)", data["id"], chord["time"], chord["length"], chord["name"])
+            id = db.execute("SELECT id FROM chords WHERE progression_id = ? AND time = ?", data["id"], chord["time"], chord["length"], chord["name"])
+            for note in chord["notes"]:
+                db.execute("INSERT INTO notes (chord_id, note) VALUES (?,?)", id, note[""])
         return redirect("/")
     else:
         progression_id = request.args['id']
