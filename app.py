@@ -91,8 +91,8 @@ def edit():
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
         data = json.loads(request.form.get("data"))
-        user_id = session.get("user_id")
-        
+        db.execute("DELETE FROM progressions WHERE id = ? AND user_id = ?", data["id"], session.get("user_id"))
+        db.execute()
         print(data)
         return redirect("/")
     else:
