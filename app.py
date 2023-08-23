@@ -90,6 +90,7 @@ def edit():
     if request.method == "POST":
         #TODO save the progression (remember to update last modified)
         print(request.form.get("data"))
+        
         return redirect("/")
     else:
         progression_id = request.args['id']
