@@ -97,9 +97,9 @@ def edit():
         db.execute("INSERT INTO progressions (id, user_id, name, time_signature, tempo) VALUES (?,?,?,?,?)", data["id"], session.get("user_id"), data["name"],data["time_signature"], data["tempo"])
         for chord in data["chords"]:
             db.execute("INSERT INTO chords (progression_id, time, length, name) VALUES (?,?,?,?)", data["id"], chord["time"], chord["length"], chord["name"])
-            id = db.execute("SELECT id FROM chords WHERE progression_id = ? AND time = ?", data["id"], chord["time"])
+            chord_id = db.execute("SELECT id FROM chords WHERE progression_id = ? AND time = ?", data["id"], chord["time"])
             for note in chord["notes"]:
-                db.execute("INSERT INTO notes (chord_id, note) VALUES (?,?)", id, note)
+                db.execute("INSERT INTO notes (chord_id, note) VALUES (?,?)", chord_id, note)
         return redirect("/")
     else:
         progression_id = request.args['id']
