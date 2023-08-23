@@ -210,7 +210,7 @@
     }
 
     function update_save() {
-        getElementById("data").value = JSON.stringify(progression)
+        document.getElementById("data").value = JSON.stringify(progression)
     }
 
     function test() {
@@ -245,6 +245,7 @@
             }
         }
         update_save()
+        select_update(selected_time)
     }
 
     function get_last_play() {
