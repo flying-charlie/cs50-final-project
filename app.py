@@ -93,7 +93,8 @@ def edit():
         data = json.loads(request.form.get("data"))
         db.execute("DELETE FROM progressions WHERE id = ? AND user_id = ?", data["id"], session.get("user_id"))
         db.execute("INSERT INTO progressions (id, user_id, name, time_signature, tempo) VALUES (?,?,?,?)", data["id"], session.get("user_id"), data["name"],data["time_signature"], data["tempo"])
-        print(data)
+        for i in data["chords"]:
+            db.execute("INSERT INTO chords (id, user_id, name, time_signature, tempo) VALUES (?,?,?,?)", )
         return redirect("/")
     else:
         progression_id = request.args['id']
