@@ -92,7 +92,7 @@ def edit():
         #TODO save the progression (remember to update last modified)
         data = json.loads(request.form.get("data"))
         db.execute("DELETE FROM progressions WHERE id = ? AND user_id = ?", data["id"], session.get("user_id"))
-        db.execute()
+        db.execute("INSERT INTO progressions (id, user_id, name, time_signature, tempo) VALUES (?,?,?,?)", data["id"], session.get("user_id"), request.form.get("name"), request.form.get("time_signature"), request.form.get("tempo"))
         print(data)
         return redirect("/")
     else:
