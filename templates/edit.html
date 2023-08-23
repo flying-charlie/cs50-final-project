@@ -302,6 +302,7 @@
         progression["chords"].splice(prev + 1, 0, {"time": time, "name": name, "length": length, "notes": notes});
         selected_time += length
         select_update(selected_time)
+        update_save()
         return;
     }
 
