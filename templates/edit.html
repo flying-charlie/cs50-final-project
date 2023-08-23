@@ -53,7 +53,7 @@
 
 <div style="height: 50px;">
     <button class="btn btn-primary" id="left" onclick="move_left()">&lt</button>
-    &nbsp&nbsp&nbsp&nbsp
+    <button class="btn btn-primary" id="remove" onclick="remove_current_chord()">delete</button>
     <button class="btn btn-primary" id="right" onclick="move_right()">&gt</button>
 </div>
 
@@ -198,6 +198,7 @@
 
     function setup() {
         select_update(selected_time)
+        update_save()
     }
 
     function select(element) {
@@ -233,6 +234,8 @@
         }
     }
 
+    function remove_current_chord() {remove_chord(selected_time)}
+
     function remove_chord(time) {
         // removes any chord that is playing at that time
         for (let i = 0; i < progression["chords"].length; i++) {
@@ -241,6 +244,7 @@
                 return;
             }
         }
+        update_save()
     }
 
     function get_last_play() {
