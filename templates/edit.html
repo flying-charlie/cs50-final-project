@@ -190,7 +190,9 @@
 {% block code %}
 <script>
     import * as Tone from 'tone'
-    
+
+    const synth = new Tone.Synth().toDestination();
+
     DISPLAY_WIDTH = 5 // how many to each side
     SCALE = ["Ab", "A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G"]
     selected_time = 0
@@ -199,6 +201,7 @@
     function setup() {
         select_update(selected_time)
         update_save()
+        synth.triggerAttackRelease("C4", "8n");
     }
 
     function select(element) {
