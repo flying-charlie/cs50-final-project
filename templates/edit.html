@@ -188,8 +188,8 @@
 {% endblock %}
 
 {% block code %}
-<script type="module">
-    import * as Tone from 'tone'
+<script>
+    require * as Tone from 'tone'
 
     const synth = new Tone.Synth().toDestination();
 
