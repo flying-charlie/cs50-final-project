@@ -202,7 +202,6 @@
     function setup() {
         select_update(selected_time)
         update_save()
-        synth.triggerAttackRelease("C4", "8n");
     }
 
     function select(element) {
@@ -222,6 +221,14 @@
         add_chord("C", 4, 4, [])
         add_chord("F", 0, 4, [])
         select_update(selected_time)
+    }
+
+    function play_next() {
+        if (selected_time < get_last_play()) {
+            selected_time++
+            select_update(selected_time)
+            if 
+        }
     }
 
     function move_right() {
