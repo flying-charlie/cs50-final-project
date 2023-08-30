@@ -214,8 +214,17 @@
         play_next()
     }
 
+    function play() {
+        play_chord(selected_time)
+        while (selected_time < get_last_play() + 1) {
+            selected_time++
+            select_update(selected_time)
+            play_chord(selected_time)
+        }
+    }
+
     function play_chord(play_time) {
-        // returns the chord starting at that time, / if continuing an existing chord, - if empty
+        // plays the chord starting at that time
         for (let i = 0; i < progression["chords"].length; i++) {
             if (progression["chords"][i]["time"] == play_time) {
                 synth.releaseAll(Tone.now())
