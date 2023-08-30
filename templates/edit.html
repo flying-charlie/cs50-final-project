@@ -220,15 +220,16 @@
     }
 
     function to_start() {
-        selected_time = 0
-        select_update(0)
+        if (!playing) {
+            selected_time = 0
+            select_update(0)
+        }
     }
 
     function play() {
         if (!playing) {
             playing = true
             document.getElementById("play").innerHTML = "stop"
-            alert("starting")
             play_chord(selected_time)
             setTimeout(play_loop, 1000 * BEAT_LENGTH)
         }
