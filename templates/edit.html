@@ -225,15 +225,15 @@
     }
 
     function play() {
-        if (document.getElementById("data").value == "play") {
+        if (document.getElementById("data").innerText == "play") {
             playing = true
-            document.getElementById("data").value = "stop"
+            document.getElementById("data").innerText = "stop"
             play_chord(selected_time)
             setTimeout(play_loop, 1000 * BEAT_LENGTH)
         }
         else {
             playing = false
-            document.getElementById("data").value = "play"
+            document.getElementById("data").innerText = "play"
         }
 
     }
@@ -242,7 +242,14 @@
         selected_time++
         select_update(selected_time)
         play_chord(selected_time)
-        if (selected_time < get_last_play() + 1) {setTimeout(play_loop, 1000 * BEAT_LENGTH);}
+        if (selected_time < get_last_play() && playing == true) {
+            setTimeout(play_loop, 1000 * BEAT_LENGTH);
+        }
+        else {
+            playing = false
+            document.getElementById("data").innerText = "play"
+            synth.releaseAll(Tone.now())
+        }
     }
 
     function play_chord(play_time) {
