@@ -212,38 +212,39 @@
         element.classList.add("selected");
     }
 
-    function chord_query(query_time) {
+    function play_current(play_time) {
         // returns the chord starting at that time, / if continuing an existing chord, - if empty
         for (let i = 0; i < progression["chords"].length; i++) {
             if (progression["chords"][i]["time"] == query_time) {
-                return progression["chords"][i]["name"];
+                progression["chords"][i]["notes"].forEach(play_note)
+                function play_note(note) {
+                    
+                }
+                return;
             }
             else if ((progression["chords"][i]["time"] < query_time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > query_time)) {
-                return "/";
+                return;
             }
         }
-        return "-";
+        return;
     }
 
     function update_save() {
         document.getElementById("data").value = JSON.stringify(progression)
     }
 
-    function test() {
-        remove_chord(0)
-        add_chord("C", 4, 4, [])
-        add_chord("F", 0, 4, [])
-        select_update(selected_time)
-    }
+    // function test() {
+    //     remove_chord(0)
+    //     add_chord("C", 4, 4, [])
+    //     add_chord("F", 0, 4, [])
+    //     select_update(selected_time)
+    // }
 
     function play_next() {
         if (selected_time < get_last_play()) {
             selected_time++
             select_update(selected_time)
-            chord = chord_query(selected_time)
-            if (chord != "/" && chord != "-") {
-
-            }
+            play_current(selected_time)
         }
     }
 
@@ -350,6 +351,19 @@
     }
 
     function select_update(time) {
+
+        function name_query(query_time) {
+            // returns the chord starting at that time, / if continuing an existing chord, - if empty
+            for (let i = 0; i < progression["chords"].length; i++) {
+                if (progression["chords"][i]["time"] == query_time) {
+                    return progression["chords"][i]["name"];
+                }
+                else if ((progression["chords"][i]["time"] < query_time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > query_time)) {
+                    return "/";
+                }
+            }
+            return "-";
+        }
 
         const center = document.querySelectorAll(".display_chord.center")[0];
         const edges = document.querySelectorAll(".display_chord.edge");
