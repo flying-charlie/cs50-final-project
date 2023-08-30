@@ -218,11 +218,10 @@
         // returns the chord starting at that time, / if continuing an existing chord, - if empty
         for (let i = 0; i < progression["chords"].length; i++) {
             if (progression["chords"][i]["time"] == play_time) {
-                progression["chords"][i]["notes"].forEach(play_note)
                 synth.triggerRelease(Tone.now())
-                synth.triggerAttack("C4", Tone.now())
+                progression["chords"][i]["notes"].forEach(play_note)
                 function play_note(note) {
-                    synth.triggerAttack("C4", Tone.now());
+                    synth.triggerAttack(note + "4", Tone.now());
                 }
                 return;
             }
@@ -246,7 +245,7 @@
     // }
 
     function play_next() {
-        if (selected_time < get_last_play()) {
+        if (selected_time < get_last_play() + 1) {
             selected_time++
             select_update(selected_time)
             play_chord(selected_time)
