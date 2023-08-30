@@ -262,8 +262,8 @@
                 notes = progression["chords"][i]["notes"]
                 notes.forEach(function(note, index, arr) {
                     arr[index] += "4";
-                    arr[index].toLowerCase()
                 });
+                alert(notes)
                 synth.triggerAttack(notes, Tone.now());
                 return;
             }
