@@ -198,12 +198,13 @@
 
     const synth = new Tone.PolySynth().toDestination();
 
-    // how many to each side
-    const DISPLAY_WIDTH = 5
+
+    const DISPLAY_WIDTH = 5     // how many to each side
     const SCALE = ["Ab", "A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G"]
     let selected_time = 0
     let progression = {{progression|safe}}
     const BEAT_LENGTH = 60 / progression["tempo"]
+    let playing = false
 
     function setup() {
         select_update(selected_time)
@@ -225,12 +226,13 @@
 
     function play() {
         if (document.getElementById("data").value == "play") {
+            playing = true
+            document.getElementById("data").value = "stop"
             play_chord(selected_time)
             setTimeout(play_loop, 1000 * BEAT_LENGTH)
-            document.getElementById("data").value = "stop"
         }
         else {
-            //stop playing?
+            playing = false
             document.getElementById("data").value = "play"
         }
 
