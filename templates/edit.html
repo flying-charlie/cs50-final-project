@@ -224,8 +224,16 @@
     }
 
     function play() {
-        play_chord(selected_time)
-        setTimeout(play_loop, 1000 * BEAT_LENGTH)
+        if (document.getElementById("data").value == "play") {
+            play_chord(selected_time)
+            setTimeout(play_loop, 1000 * BEAT_LENGTH)
+            document.getElementById("data").value = "stop"
+        }
+        else {
+            //stop playing?
+            document.getElementById("data").value = "play"
+        }
+
     }
 
     function play_loop() {
