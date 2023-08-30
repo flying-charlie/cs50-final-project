@@ -294,8 +294,9 @@
     function get_notes(name, extensions) {
         let minor = false;
         if (name.includes("min")) {
-            name.slice(0, -3);
+            name = name.replace('min','');
             minor = true;
+            alert(name)
         }
 
         let notes = [name];
@@ -313,6 +314,7 @@
         if (extensions.includes("7th")) {
             notes.push(SCALE[(start_index + 10) % 12]);
         }
+        alert(notes)
         return notes;
     }
 
