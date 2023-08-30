@@ -210,19 +210,20 @@
             item.classList.remove("selected")
         }
         element.classList.add("selected");
+        play_next()
     }
 
-    function play_current(play_time) {
+    function play_chord(play_time) {
         // returns the chord starting at that time, / if continuing an existing chord, - if empty
         for (let i = 0; i < progression["chords"].length; i++) {
-            if (progression["chords"][i]["time"] == query_time) {
+            if (progression["chords"][i]["time"] == play_time) {
                 progression["chords"][i]["notes"].forEach(play_note)
                 function play_note(note) {
                     synth.triggerAttackRelease("C4", "8n");
                 }
                 return;
             }
-            else if ((progression["chords"][i]["time"] < query_time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > query_time)) {
+            else if ((progression["chords"][i]["time"] < play_time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > play_time)) {
                 return;
             }
         }
@@ -244,7 +245,7 @@
         if (selected_time < get_last_play()) {
             selected_time++
             select_update(selected_time)
-            play_current(selected_time)
+            play_chord(selected_time)
         }
     }
 
