@@ -220,10 +220,9 @@
             if (progression["chords"][i]["time"] == play_time) {
                 synth.triggerRelease(Tone.now())
                 notes = progression["chords"][i]["notes"]
-                notes.forEach(add_4())
-                function add_4(note) {
-                    note += "4"
-                }
+                notes.forEach(function() {
+                    profile.get(username, topic);
+                });
                 synth.triggerAttack(notes, Tone.now());
                 return;
             }
