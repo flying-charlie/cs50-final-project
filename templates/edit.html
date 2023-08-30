@@ -244,7 +244,7 @@
         selected_time++
         select_update(selected_time)
         play_chord(selected_time)
-        if (selected_time < get_last_play() && playing == true) {
+        if (selected_time < get_last_play() + 1 && playing == true) {
             setTimeout(play_loop, 1000 * BEAT_LENGTH);
         }
         else {
