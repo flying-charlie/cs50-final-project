@@ -219,8 +219,10 @@
         for (let i = 0; i < progression["chords"].length; i++) {
             if (progression["chords"][i]["time"] == play_time) {
                 progression["chords"][i]["notes"].forEach(play_note)
+                synth.triggerRelease(Tone.now())
+                synth.triggerAttack("C4", Tone.now())
                 function play_note(note) {
-                    synth.triggerAttackRelease("C4", beat_length * progression["chords"][i]["length"]);
+                    synth.triggerAttack("C4", Tone.now());
                 }
                 return;
             }
@@ -228,6 +230,7 @@
                 return;
             }
         }
+        synth.triggerRelease(Tone.now())
         return;
     }
 
