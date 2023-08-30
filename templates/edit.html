@@ -225,9 +225,10 @@
     }
 
     function play() {
-        if (playing = false) {
+        if (!playing) {
             playing = true
             document.getElementById("play").innerHTML = "stop"
+            alert("starting")
             play_chord(selected_time)
             setTimeout(play_loop, 1000 * BEAT_LENGTH)
         }
