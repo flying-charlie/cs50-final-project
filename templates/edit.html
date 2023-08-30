@@ -189,9 +189,9 @@
 
 {% block code %}
 <script type="module">
-    // import * as Tone from '../node_modules/tone/build/Tone.js'
+    /// import * as Tone from '../node_modules/tone/build/Tone.js'
 
-    // const synth = new Tone.Synth().toDestination();
+    /// const synth = new Tone.Synth().toDestination();
 
     // how many to each side
     const DISPLAY_WIDTH = 5
@@ -202,7 +202,7 @@
     function setup() {
         select_update(selected_time)
         update_save()
-        // synth.triggerAttackRelease("C4", "8n");
+        /// synth.triggerAttackRelease("C4", "8n");
     }
 
     function select(element) {
