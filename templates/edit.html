@@ -198,7 +198,7 @@
     const SCALE = ["Ab", "A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G"]
     let selected_time = 0
     let progression = {{progression|safe}}
-    let beat_length = 60 / progression["tempo"]
+    const BEAT_LENGTH = 60 / progression["tempo"]
 
     function setup() {
         select_update(selected_time)
@@ -211,16 +211,19 @@
             item.classList.remove("selected")
         }
         element.classList.add("selected");
-        play_next()
+        play()
     }
 
     function play() {
         play_chord(selected_time)
-        while (selected_time < get_last_play() + 1) {
-            selected_time++
-            select_update(selected_time)
-            play_chord(selected_time)
-        }
+        setTimeout(play_loop, 1000 * BEAT_LENGTH)
+    }
+
+    function play_loop() {
+        selected_time++
+        select_update(selected_time)
+        play_chord(selected_time)
+        if (selected_time < get_last_play() + 1) {setTimeout(play_loop, 1000 * BEAT_LENGTH);}
     }
 
     function play_chord(play_time) {
