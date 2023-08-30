@@ -212,22 +212,38 @@
         element.classList.add("selected");
     }
 
+    function chord_query(query_time) {
+        // returns the chord starting at that time, / if continuing an existing chord, - if empty
+        for (let i = 0; i < progression["chords"].length; i++) {
+            if (progression["chords"][i]["time"] == query_time) {
+                return progression["chords"][i]["name"];
+            }
+            else if ((progression["chords"][i]["time"] < query_time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > query_time)) {
+                return "/";
+            }
+        }
+        return "-";
+    }
+
     function update_save() {
         document.getElementById("data").value = JSON.stringify(progression)
     }
 
-    function test() {
-        remove_chord(0)
-        add_chord("C", 4, 4, [])
-        add_chord("F", 0, 4, [])
-        select_update(selected_time)
-    }
+    // function test() {
+    //     remove_chord(0)
+    //     add_chord("C", 4, 4, [])
+    //     add_chord("F", 0, 4, [])
+    //     select_update(selected_time)
+    // }
 
     function play_next() {
         if (selected_time < get_last_play()) {
             selected_time++
             select_update(selected_time)
-            if 
+            chord = chord_query(selected_time)
+            if (chord != "/" && chord != "-") {
+
+            }
         }
     }
 
@@ -269,34 +285,33 @@
         return last_time + last_length - 1
     }
 
-    function add_chord(name, time, length, extensions) {
-
-        function get_notes(name, extensions) {
-            let minor = false;
-            if (name.includes("min")) {
-                name.slice(0, -3);
-                minor = true;
-            }
-
-            let notes = [name];
-            start_index = SCALE.indexOf(name);
-
-            if (minor) {
-                notes.push(SCALE[(start_index + 3) % 12]);
-            }
-            else {
-                notes.push(SCALE[(start_index + 4) % 12]);
-            }
-
-            notes.push(SCALE[(start_index + 7) % 12]);
-
-            if (extensions.includes("7th")) {
-                notes.push(SCALE[(start_index + 10) % 12]);
-            }
-            return notes;
+    function get_notes(name, extensions) {
+        let minor = false;
+        if (name.includes("min")) {
+            name.slice(0, -3);
+            minor = true;
         }
 
+        let notes = [name];
+        start_index = SCALE.indexOf(name);
 
+        if (minor) {
+            notes.push(SCALE[(start_index + 3) % 12]);
+        }
+        else {
+            notes.push(SCALE[(start_index + 4) % 12]);
+        }
+
+        notes.push(SCALE[(start_index + 7) % 12]);
+
+        if (extensions.includes("7th")) {
+            notes.push(SCALE[(start_index + 10) % 12]);
+        }
+        return notes;
+    }
+
+
+    function add_chord(name, time, length, extensions) {
         for (let i = 0; i < length; i++) {
             remove_chord(time + i);
         }
@@ -335,19 +350,6 @@
     }
 
     function select_update(time) {
-
-        function chord_query(query_time) {
-            // returns the chord starting at that time, / if continuing an existing chord, - if empty
-            for (let i = 0; i < progression["chords"].length; i++) {
-                if (progression["chords"][i]["time"] == query_time) {
-                    return progression["chords"][i]["name"];
-                }
-                else if ((progression["chords"][i]["time"] < query_time) && ((progression["chords"][i]["time"] + progression["chords"][i]["length"]) > query_time)) {
-                    return "/";
-                }
-            }
-            return "-";
-        }
 
         const center = document.querySelectorAll(".display_chord.center")[0];
         const edges = document.querySelectorAll(".display_chord.edge");
