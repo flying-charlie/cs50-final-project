@@ -17,8 +17,10 @@
 {% endblock %}
 
 {% block main %}
-<h1>{{progression["name"]}}</h1>
-{{progression["time_signature"]}}/4, {{progression["tempo"]}}bpm
+<div id="info">
+    <h1>{{progression["name"]}}</h1>
+    {{progression["time_signature"]}}/4, {{progression["tempo"]}}bpm
+</div>
 
 <div class="sidebar">
     <div>
@@ -40,6 +42,9 @@
         <input type="checkbox" id="7th" class="extension">
     </div>
 </div>
+
+<button class="btn btn-primary" id="play" onclick="play()">play</button>
+<button class="btn btn-primary" id="to_start" onclick="to_start()">to start</button>
 
 <div id="chords">
     <text class="display_chord edge"></text>
@@ -211,7 +216,11 @@
             item.classList.remove("selected")
         }
         element.classList.add("selected");
-        play()
+    }
+
+    function to_start() {
+        selected_time = 0
+        select_update(0)
     }
 
     function play() {
@@ -309,7 +318,6 @@
         if (name.includes("min")) {
             name = name.replace('min','');
             minor = true;
-            alert(name)
         }
 
         let notes = [name];
@@ -327,7 +335,6 @@
         if (extensions.includes("7th")) {
             notes.push(SCALE[(start_index + 10) % 12]);
         }
-        alert(notes)
         return notes;
     }
 
