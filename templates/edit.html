@@ -218,7 +218,7 @@
             if (progression["chords"][i]["time"] == query_time) {
                 progression["chords"][i]["notes"].forEach(play_note)
                 function play_note(note) {
-                    
+                    synth.triggerAttackRelease("C4", "8n");
                 }
                 return;
             }
@@ -370,7 +370,7 @@
         const left = edges[0];
         const right = edges[1];
 
-        center.innerHTML = chord_query(time);
+        center.innerHTML = name_query(time);
 
         let left_text = "";
         for (let i = time - DISPLAY_WIDTH; i < time; i++) {
@@ -378,7 +378,7 @@
                 if (i % progression["time_signature"] == 0) {
                     left_text += "&nbsp&nbsp"
                 }
-                left_text += chord_query(i);
+                left_text += name_query(i);
             }
             else {
                 left_text += "&nbsp&nbsp"
@@ -393,7 +393,7 @@
                 if (i % progression["time_signature"] == 0) {
                     right_text += "&nbsp&nbsp"
                 }
-                right_text += chord_query(i)
+                right_text += name_query(i)
             }
             else {
                 right_text += "&nbsp&nbsp"
