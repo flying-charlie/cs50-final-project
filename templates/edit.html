@@ -202,7 +202,7 @@
     function setup() {
         select_update(selected_time)
         update_save()
-        synth.triggerAttackRelease("C4", "8n");
+        // synth.triggerAttackRelease("C4", "8n");
     }
 
     function select(element) {
@@ -253,25 +253,25 @@
     }
 
     function get_last_play() {
-        last_chord = progression["chords"][progression["chords"].length - 1]
+        let last_chord = progression["chords"][progression["chords"].length - 1]
         if (!last_chord) {
             return -1
         }
-        last_time = progression["chords"][progression["chords"].length - 1]["time"]
-        last_length = progression["chords"][progression["chords"].length - 1]["length"]
+        let last_time = progression["chords"][progression["chords"].length - 1]["time"]
+        let last_length = progression["chords"][progression["chords"].length - 1]["length"]
         return last_time + last_length - 1
     }
 
     function add_chord(name, time, length, extensions) {
 
         function get_notes(name, extensions) {
-            minor = false;
+            let minor = false;
             if (name.includes("min")) {
                 name.slice(0, -3);
                 minor = true;
             }
 
-            notes = [name];
+            let notes = [name];
             start_index = SCALE.indexOf(name);
 
             if (minor) {
@@ -293,11 +293,11 @@
         for (let i = 0; i < length; i++) {
             remove_chord(time + i);
         }
-        notes = get_notes(name, extensions)
+        let notes = get_notes(name, extensions)
         if (extensions.includes("7th")) {
             name += "7"
         }
-        prev = -1
+        let prev = -1
         for (let i = 0; i < progression["chords"].length; i++) {
             if (progression["chords"][i]["time"] < time) {
                 prev = progression["chords"][i]["time"]
@@ -313,7 +313,7 @@
 
     function add_selected() {
         function get_extensions() {
-            extensions = []
+            let extensions = []
             document.querySelectorAll(".extension").forEach(get_extension)
             function get_extension(item) {
                 if (item.checked) {
@@ -322,8 +322,8 @@
             }
             return extensions
         }
-        element = document.querySelectorAll(".selected")[0];
-        length = parseInt(document.getElementById("length").value);
+        let element = document.querySelectorAll(".selected")[0];
+        let length = parseInt(document.getElementById("length").value);
         add_chord(element.id, selected_time, length, get_extensions())
     }
 
@@ -342,14 +342,14 @@
             return "-";
         }
 
-        center = document.querySelectorAll(".display_chord.center")[0];
-        edges = document.querySelectorAll(".display_chord.edge");
-        left = edges[0];
-        right = edges[1];
+        const center = document.querySelectorAll(".display_chord.center")[0];
+        const edges = document.querySelectorAll(".display_chord.edge");
+        const left = edges[0];
+        const right = edges[1];
 
         center.innerHTML = chord_query(time);
 
-        left_text = "";
+        let left_text = "";
         for (let i = time - DISPLAY_WIDTH; i < time; i++) {
             if (i >= 0) {
                 if (i % progression["time_signature"] == 0) {
@@ -363,7 +363,7 @@
         }
         left.innerHTML = left_text;
 
-        right_text = ""
+        let right_text = ""
         last_play = get_last_play()
         for (let i = time + 1; i < time + 1 + DISPLAY_WIDTH; i++) {
             if (i <= (last_play + progression["time_signature"])) {
