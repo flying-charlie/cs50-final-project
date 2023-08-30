@@ -225,15 +225,16 @@
     }
 
     function play() {
-        if (document.getElementById("data").innerText == "play") {
+        if (document.getElementById("data").innerHTML == "play") {
             playing = true
-            document.getElementById("data").innerText = "stop"
+            document.getElementById("data").innerHTML = "stop"
+            alert("starting")
             play_chord(selected_time)
             setTimeout(play_loop, 1000 * BEAT_LENGTH)
         }
         else {
             playing = false
-            document.getElementById("data").innerText = "play"
+            document.getElementById("data").innerHTML = "play"
         }
 
     }
@@ -247,7 +248,7 @@
         }
         else {
             playing = false
-            document.getElementById("data").innerText = "play"
+            document.getElementById("data").innerHTML = "play"
             synth.releaseAll(Tone.now())
         }
     }
