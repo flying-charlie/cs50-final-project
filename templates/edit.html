@@ -277,13 +277,6 @@
         document.getElementById("data").value = JSON.stringify(progression)
     }
 
-    // function test() {
-    //     remove_chord(0)
-    //     add_chord("C", 4, 4, [])
-    //     add_chord("F", 0, 4, [])
-    //     select_update(selected_time)
-    // }
-
     function play_next() {
         if (selected_time < get_last_play() + 1) {
             selected_time++
