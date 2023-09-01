@@ -7,7 +7,7 @@ from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 import json
 
-from project.functions import apology, login_required
+from functions import apology, login_required
 
 # Configure application
 app = Flask(__name__)

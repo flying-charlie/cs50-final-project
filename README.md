@@ -19,8 +19,9 @@ The SQL database storing all user and progression data. This is only accessed by
 The required python librarys.
 
 ### templates
+
 #### layout.html
-This is the main template for all pages, containing the navbar (with a block for extra options), imports for tone.js (from static) and bootstrap, a block for code, a block for the header, and a block for the main HTML.
+This is the main template for all pages, containing the navbar (with a block for extra options), imports for tone.js (from static), bootstrap and the filesheet, a block for code, a block for the header, and a block for the main HTML.
 
 #### index.html
 The home page of the website - shows your previously created progressions.
@@ -37,4 +38,12 @@ The page to create a new progression, with some choices such as time signature a
 #### edit.html
 The main page of the website - where you create and edit progresssions. Contains svg for creating a circle of 5ths, as well as javascript to allow for the editing of progressions and playing back of them (using tone.js)
 
-###
+### static
+
+#### styles.css
+The stylesheet for the HTML pages
+
+#### tone
+The tone.js library (probably not the best way, but I couldn't find a better one)
+
+## Design choices
