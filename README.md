@@ -7,4 +7,22 @@ To launch the website in a development enviroment from the project directory run
 
 ## File breakdown
 ### app.py
-This is the 
+This is the main part of the backend, handling databases (using CS50's own SQL library based on SQLite), sending data to the user and recieving data. It is written in Flask (a popular python backend tool) and usually returns HTML files.
+
+### schema.txt
+This file contains the database schema for `progressions.db`. For development use.
+
+### progressions.db
+The SQL database storing all user and progression data. This is only accessed by `app.py`.
+
+### requirements.txt
+The required python librarys.
+
+### templates
+#### layout.html
+This is the main template for all pages, containing the navbar (with a block for extra options), imports for tone.js (from static) and bootstrap, a block for code, a block for the header, and a block for the main HTML.
+
+#### index.html
+The main page of the website - shows your previously created progressions.
+
+#### 
