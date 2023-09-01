@@ -8,7 +8,7 @@ To launch the website in a development enviroment from the project directory run
 
 ## File breakdown
 ### app.py
-This is the main part of the backend, handling databases (using CS50's own SQL library based on SQLite), sending data to the user and recieving data. It is written in Flask (a popular python backend tool) and usually returns HTML files. 
+This is the main part of the backend, handling databases (using CS50's own SQL library based on SQLite), sending data to the user and recieving data. It is written in Flask (a popular python backend tool) and usually returns HTML files. Based on the app.py from the CS50x project finance.
 
 ### schema.txt
 This file contains the database schema for `progressions.db`. Useful during development to for modifying or adding to the database structure.
