@@ -2,11 +2,13 @@
 Progression Pilot is a website built in Flask with Jinja html templating, used for easily creating chord progressions to use in music. It was made as part of the CS50x computer science course. [Here](https://www.youtube.com/watch?v=Hz-QCDL7C0g) is a video showing the features of the website.
 
 ## Running
+To install all python dependencies use `pip install -r requirements.txt`
+
 To launch the website in a development enviroment from the project directory run `flask run`.
 
 ## File breakdown
 ### app.py
-This is the main part of the backend, handling databases (using CS50's own SQL library based on SQLite), sending data to the user and recieving data. It is written in Flask (a popular python backend tool) and usually returns HTML files.
+This is the main part of the backend, handling databases (using CS50's own SQL library based on SQLite), sending data to the user and recieving data. It is written in Flask (a popular python backend tool) and usually returns HTML files. 
 
 ### schema.txt
 This file contains the database schema for `progressions.db`. Useful during development to for modifying or adding to the database structure.
@@ -15,7 +17,7 @@ This file contains the database schema for `progressions.db`. Useful during deve
 The SQL database storing all user and progression data. This is only accessed by `app.py`.
 
 ### requirements.txt
-The required python librarys.
+The required python librarys for pip.
 
 ### <ins>templates</ins>
 
