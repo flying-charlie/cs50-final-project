@@ -37,7 +37,7 @@ The page to register a new account.
 The page to create a new progression, with some choices such as time signature and tempo.
 
 #### edit.html
-The main page of the website - where you create and edit progresssions. Contains svg for creating a circle of 5ths - I created the paths in an online svg editor and copied into the html file, as well as javascript to allow for the editing of progressions and playing back of them (using `tone.js`).
+The main page of the website - where you create and edit progresssions. Contains svg for creating a circle of 5ths - I created the paths in an online svg editor and copied into the html file, as well as javascript to allow for the editing of progressions and playing back of them - using `tone.js`'s .
 
 ### <ins>static</ins>
 
