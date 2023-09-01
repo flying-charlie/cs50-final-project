@@ -25,7 +25,7 @@ The required python librarys for pip.
 This is the main template for all pages, containing the navbar (with a block for extra options), imports for tone.js (from static), bootstrap and the filesheet, a block for code, a block for the header, and a block for the main HTML.
 
 #### index.html
-The home page of the website - shows your previously created progressions.
+The home page of the website. Shows your previously created progressions which are sent by `app.py` when loading the template.
 
 #### login.html
 The page to login to your account.
@@ -37,7 +37,7 @@ The page to register a new account.
 The page to create a new progression, with some choices such as time signature and tempo.
 
 #### edit.html
-The main page of the website - where you create and edit progresssions. Contains svg for creating a circle of 5ths, as well as javascript to allow for the editing of progressions and playing back of them (using tone.js).
+The main page of the website - where you create and edit progresssions. Contains svg for creating a circle of 5ths, as well as javascript to allow for the editing of progressions and playing back of them (using `tone.js`).
 
 ### <ins>static</ins>
 
@@ -45,7 +45,7 @@ The main page of the website - where you create and edit progresssions. Contains
 The stylesheet for the HTML pages.
 
 #### tone
-The tone.js library (probably not the best way, but I couldn't find a better one).
+The `tone.js` library (probably not the best way, but I couldn't find a better one).
 
 ## Design choices
 ### languages
